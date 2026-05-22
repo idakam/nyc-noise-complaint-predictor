@@ -31,9 +31,9 @@ Make sure the following are installed on your machine:
 1. Open your terminal and run:
 
 
-    `git clone https://github.com/idakam/nyc-noise-complaint-capstone.git`
+    `git clone https://github.com/idakam/nyc-noise-complaint-predictor.git`
 
-    `cd nyc-noise-complaint-capstone`
+    `cd nyc-noise-complaint-predictor`
 
 
 
@@ -53,7 +53,7 @@ Make sure the following are installed on your machine:
 
 5. Register the virtual environment as a Jupyter kernel:
 
-    `python3 -m ipykernel install --user --name=capstone --display-name "Python (Capstone)"`
+    `python3 -m ipykernel install --user --name=noiseproject --display-name "Python (NoiseProject)"`
 6. From the project root directory, launch Jupyter:
 
     `jupyter notebook notebooks/`
@@ -64,7 +64,7 @@ Make sure the following are installed on your machine:
 
     - Click Select Kernel (top-right)
 
-    - Choose **Python (Capstone)**
+    - Choose **Python (NoiseProject)**
 
 
     NOTE: The notebooks must be run sequentially — each notebook generates files used by the next.
