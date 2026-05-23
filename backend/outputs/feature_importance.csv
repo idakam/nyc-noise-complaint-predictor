@@ -1,0 +1,58 @@
+feature,importance
+Neighborhood_Northeast Bronx,0.17005142221317965
+Time_Bucket_night,0.12900435379158487
+Day_of_Week,0.12053817524540492
+Neighborhood_Inwood and Washington Heights,0.09132457094152174
+Borough_BRONX,0.06467424403827876
+Time_Bucket_morning,0.037099243434539846
+Time_Bucket_overnight,0.03531940793932222
+Season_Summer,0.033217868041996106
+Borough_STATEN ISLAND,0.02853712950748116
+Season_Winter,0.02731824391558866
+Time_Bucket_evening,0.02542689077624267
+Neighborhood_West Queens,0.017299973488071486
+Time_Bucket_afternoon,0.016267062386092237
+Neighborhood_Central Brooklyn,0.01564379467452625
+Season_Spring,0.014930604871102045
+Neighborhood_Kingsbridge and Riverdale,0.014589300154632468
+Neighborhood_Central Bronx,0.013558187992364072
+Season_Fall,0.012945663133868851
+Neighborhood_High Bridge and Morrisania,0.00874802878059038
+Neighborhood_Bronx Park and Fordham,0.00855264891517093
+Neighborhood_Bushwick and Williamsburg,0.007928420310358734
+Neighborhood_Northeast Queens,0.007427127349676436
+Neighborhood_Lower Manhattan,0.007201217618908156
+Neighborhood_Southwest Queens,0.007173518741628057
+Neighborhood_Central Harlem,0.007082287933312678
+Neighborhood_Hunts Point and Mott Haven,0.006732141285037785
+Neighborhood_Flatbush,0.006611621800148001
+Neighborhood_Upper West Side,0.005600692542067291
+Borough_MANHATTAN,0.005487169772664851
+Borough_QUEENS,0.0047103767066807925
+Neighborhood_Southeast Bronx,0.004625267403288212
+Neighborhood_Lower East Side,0.004331386901151394
+Borough_BROOKLYN,0.0035728857391727287
+Neighborhood_Central Queens,0.0030283033388129117
+Neighborhood_Rockaways,0.002946422305972664
+Neighborhood_Sunset Park,0.002822634012921283
+Neighborhood_Mid-Island,0.0026671542554662147
+Neighborhood_Port Richmond,0.0025056248272756986
+Neighborhood_Northwest Brooklyn,0.0023591039023427894
+Neighborhood_Southeast Queens,0.00234000830333338
+Neighborhood_Canarsie and Flatlands,0.0019887756022459184
+Neighborhood_Upper East Side,0.001952024669231513
+Neighborhood_South Shore,0.0017939198846028694
+Neighborhood_Southwest Brooklyn,0.0016601019358512318
+Neighborhood_Gramercy Park and Murray Hill,0.0013988198186708609
+Neighborhood_Jamaica,0.0013830679956267408
+Neighborhood_Greenwich Village and Soho,0.0013087520361086858
+Neighborhood_Stapleton and St. George,0.0012399761743593196
+Neighborhood_Northwest Queens,0.00110513609658427
+Neighborhood_Borough Park,0.0007910827974686436
+Neighborhood_East Harlem,0.0006921810758173025
+Neighborhood_Chelsea and Clinton,0.0006626732865688789
+Neighborhood_East New York and New Lots,0.0005973944312682319
+Neighborhood_Greenpoint,0.0005257032030905788
+Neighborhood_North Queens,0.00028842183071540686
+Neighborhood_Southern Brooklyn,0.0002159104864454705
+Neighborhood_West Central Queens,0.00019587938356474676

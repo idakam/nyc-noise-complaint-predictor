@@ -11,3 +11,9 @@ outputs/**.csv
 **/.ipynb_checkpoints/
 *-checkpoint.ipynb
 notebooks/.ipynb_checkpoints
+*.pyo
+.env
+.venv/
+venv/
+*.egg-info/
+.DS_Store
