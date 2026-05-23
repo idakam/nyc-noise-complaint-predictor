@@ -1,0 +1,8 @@
+,Value
+Model,RandomForestRegressor
+Train Samples,4704
+Test Samples,1176
+Features,57
+R² (Test),0.7466170171090868
+MAE (Test),2.8660863516001966
+RMSE (Test),6.429412721800023

@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --border: #1e1e2e;
+  --accent: #e8ff47;       /* electric yellow-green */
+  --accent-dim: #b8cc2a;
+  --red: #ff4757;
+  --orange: #ff9f43;
+  --green: #2ed573;
+  --text: #e8e8f0;
+  --text-muted: #6b6b80;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+}
+
+/* Mapbox popup overrides */
+.mapboxgl-popup-content {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  color: var(--text) !important;
+  font-family: 'Syne', sans-serif !important;
+  padding: 12px 16px !important;
+}
+.mapboxgl-popup-tip { display: none !important; }
