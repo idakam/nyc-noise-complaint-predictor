@@ -7,7 +7,7 @@ backend/__pycache__/
 *.pyc
 backend/src/__pycache__/
 outputs/**.csv
-.ipynb_checkpoints/
+backend/.ipynb_checkpoints/
 **/.ipynb_checkpoints/
 *-checkpoint.ipynb
 backend/notebooks/.ipynb_checkpoints
@@ -18,3 +18,4 @@ venv/
 *.egg-info/
 .DS_Store
 backend/data/processed/*.parquet
+
