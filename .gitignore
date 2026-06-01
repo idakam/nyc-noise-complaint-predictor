@@ -20,3 +20,4 @@ frontend/dist/
 
 # Mac
 .DS_Store
+backend/data/processed/noise_cleaned.parquet
