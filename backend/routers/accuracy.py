@@ -41,24 +41,25 @@ def predict_type(borough: str, season: str, time_bucket: str):
 
 
 
-@router.get("/accuracy")
+@router.get("/accuracy")  # <-- this stays the same
 def get_accuracy():
     """Return full accuracy log for the frontend chart."""
     log_path = DATA_DIR / "accuracy_log.json"
+    
+    # Replace the HTTPException 404s with empty returns
     if not log_path.exists():
-        raise HTTPException(status_code=404, detail="No accuracy data yet. Run the backfill first.")
+        return {"entries": [], "summary": None}  # ✅ was raising 404
 
     with open(log_path) as f:
         log = json.load(f)
 
     if not log:
-        raise HTTPException(status_code=404, detail="Accuracy log is empty.")
+        return {"entries": [], "summary": None}  # ✅ was raising 404
 
-    # Summary stats
+    # Rest stays the same...
     rmse_values = [e["rmse"] for e in log]
     mae_values = [e["mae"] for e in log]
 
-    # Recent trend — last 4 weeks vs previous 4
     recent = rmse_values[-4:] if len(rmse_values) >= 4 else rmse_values
     previous = rmse_values[-8:-4] if len(rmse_values) >= 8 else rmse_values
     trend = "improving" if sum(recent) / len(recent) < sum(previous) / len(previous) else "degrading"
@@ -75,7 +76,6 @@ def get_accuracy():
             "latest_week": log[-1]["week_start"],
         }
     }
-
 
 @router.get("/pipeline/status")
 def get_pipeline_status():
