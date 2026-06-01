@@ -13,23 +13,19 @@ from src.prediction_utils import (
 )
 
 router = APIRouter()
-
-# Load neighborhood data once at module level
 df = load_clean_data()
 
-
-# ── Request models ────────────────────────────────────────────────────────────
 
 class DatePredictionRequest(BaseModel):
     borough: str
     neighborhood: str
-    date: str        # ISO format: "2025-08-15"
-    time_bucket: str # morning | afternoon | evening | night | overnight
+    date: str
+    time_bucket: str
 
 class WeeklyPatternRequest(BaseModel):
     borough: str
     neighborhood: str
-    date: str        # any date in the target week
+    date: str
 
 class HotspotRequest(BaseModel):
     borough: str
@@ -37,11 +33,8 @@ class HotspotRequest(BaseModel):
     time_bucket: str
 
 
-# ── Endpoints ─────────────────────────────────────────────────────────────────
-
 @router.get("/boroughs")
 def get_boroughs():
-    """Return all boroughs and their neighborhoods."""
     boroughs = (
         df[df["Borough"] != "UNKNOWN"]
         .groupby("Borough")["Neighborhood"]
@@ -53,58 +46,49 @@ def get_boroughs():
 
 @router.post("/predict/date")
 def predict_date(body: DatePredictionRequest, request: Request):
-    """Single prediction for a specific date, neighborhood, and time."""
     try:
         target_date = datetime.fromisoformat(body.date)
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid date format. Use YYYY-MM-DD.")
 
     volume = predict_from_date(
-        body.borough,
-        body.neighborhood,
-        target_date,
-        body.time_bucket,
-        request.app.state.volume_model,
-        request.app.state.feature_columns,
+        body.borough, body.neighborhood, target_date, body.time_bucket,
+        request.app.state.volume_model, request.app.state.feature_columns,
     )
 
     risk = get_risk_level(volume)
-    lower = max(0, volume - 2.88)
-    upper = volume + 2.88
 
     return {
         "borough": body.borough,
         "neighborhood": body.neighborhood,
         "date": body.date,
         "day": target_date.strftime("%A"),
+        "month": target_date.month,
+        "month_name": target_date.strftime("%B"),
         "season": get_season(target_date),
         "time_bucket": body.time_bucket,
         "predicted_volume": round(volume, 1),
-        "lower_bound": round(lower, 1),
-        "upper_bound": round(upper, 1),
+        "lower_bound": round(max(0, volume - 2.88), 1),
+        "upper_bound": round(volume + 2.88, 1),
         "risk_level": risk,
     }
 
 
 @router.post("/predict/weekly")
 def predict_weekly(body: WeeklyPatternRequest, request: Request):
-    """Full weekly pattern (7 days x 5 time buckets) for a neighborhood."""
     try:
         target_date = datetime.fromisoformat(body.date)
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid date format. Use YYYY-MM-DD.")
 
     season = get_season(target_date)
+    month = target_date.month
 
     result_df = generate_weekly_pattern(
-        body.borough,
-        body.neighborhood,
-        season,
-        request.app.state.volume_model,
-        request.app.state.feature_columns,
+        body.borough, body.neighborhood, season, month,
+        request.app.state.volume_model, request.app.state.feature_columns,
     )
 
-    # Shape into {day: {time: volume}} for easy frontend consumption
     pattern = {}
     for _, row in result_df.iterrows():
         day = row["Day"]
@@ -114,11 +98,7 @@ def predict_weekly(body: WeeklyPatternRequest, request: Request):
 
     peak = result_df.sort_values("Volume", ascending=False).head(5)
     peak_times = [
-        {
-            "day": r["Day"],
-            "time": r["Time"],
-            "volume": round(r["Volume"], 1),
-        }
+        {"day": r["Day"], "time": r["Time"], "volume": round(r["Volume"], 1)}
         for _, r in peak.iterrows()
     ]
 
@@ -126,6 +106,7 @@ def predict_weekly(body: WeeklyPatternRequest, request: Request):
         "borough": body.borough,
         "neighborhood": body.neighborhood,
         "season": season,
+        "month_name": target_date.strftime("%B"),
         "week_total": round(result_df["Volume"].sum(), 1),
         "pattern": pattern,
         "peak_times": peak_times,
@@ -134,13 +115,13 @@ def predict_weekly(body: WeeklyPatternRequest, request: Request):
 
 @router.post("/predict/hotspot")
 def predict_hotspot(body: HotspotRequest, request: Request):
-    """All neighborhoods in a borough with predicted volumes + coordinates."""
     try:
         target_date = datetime.fromisoformat(body.date)
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid date format. Use YYYY-MM-DD.")
 
     season = get_season(target_date)
+    month = target_date.month
     day_of_week = target_date.weekday()
 
     borough_df = df[df["Borough"] == body.borough.upper()].copy()
@@ -149,19 +130,10 @@ def predict_hotspot(body: HotspotRequest, request: Request):
     results = []
     for neighborhood in neighborhoods:
         volume = predict_volume(
-            body.borough.upper(),
-            neighborhood,
-            season,
-            day_of_week,
-            body.time_bucket,
-            request.app.state.volume_model,
-            request.app.state.feature_columns,
+            body.borough.upper(), neighborhood, season, month, day_of_week, body.time_bucket,
+            request.app.state.volume_model, request.app.state.feature_columns,
         )
-
-        coords = (
-            borough_df[borough_df["Neighborhood"] == neighborhood][["Latitude", "Longitude"]]
-            .dropna()
-        )
+        coords = borough_df[borough_df["Neighborhood"] == neighborhood][["Latitude", "Longitude"]].dropna()
         if coords.empty:
             continue
 
@@ -183,6 +155,7 @@ def predict_hotspot(body: HotspotRequest, request: Request):
         "borough": body.borough,
         "date": body.date,
         "day": target_date.strftime("%A"),
+        "month_name": target_date.strftime("%B"),
         "season": season,
         "time_bucket": body.time_bucket,
         "max_volume": round(max_volume, 1),

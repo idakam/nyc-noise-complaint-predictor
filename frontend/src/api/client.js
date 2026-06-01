@@ -12,12 +12,6 @@ async function request(path, options = {}) {
   return res.json()
 }
 
-fetch('http://localhost:7860/api/predict/hotspot', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({borough: 'BROOKLYN', date: '2025-06-01', time_bucket: 'evening'})
-}).then(r => r.json()).then(d => console.log(d.neighborhoods.slice(0, 3)))
-
 export const api = {
   getBoroughs: () =>
     request('/api/boroughs'),
@@ -31,6 +25,12 @@ export const api = {
   predictHotspot: (body) =>
     request('/api/predict/hotspot', { method: 'POST', body: JSON.stringify(body) }),
 
-  health: () =>
-    request('/api/health'),
+  getAccuracy: () =>
+    request('/api/accuracy'),
+
+  getPipelineStatus: () =>
+    request('/api/pipeline/status'),
+
+  getTypeDistribution: (borough, season, timeBucket) =>
+    request(`/api/predict/type?borough=${borough}&season=${season}&time_bucket=${timeBucket}`),
 }

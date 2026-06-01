@@ -1,0 +1,245 @@
+[
+  {
+    "week_start": "2025-08-11",
+    "rmse": 9.212,
+    "mae": 5.663,
+    "mean_actual": 10.34,
+    "mean_predicted": 12.38,
+    "n_records": 1347,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-08-18",
+    "rmse": 10.895,
+    "mae": 6.385,
+    "mean_actual": 12.3,
+    "mean_predicted": 12.28,
+    "n_records": 1378,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-08-25",
+    "rmse": 11.29,
+    "mae": 6.365,
+    "mean_actual": 13.19,
+    "mean_predicted": 12.19,
+    "n_records": 1381,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-09-01",
+    "rmse": 11.361,
+    "mae": 5.956,
+    "mean_actual": 11.37,
+    "mean_predicted": 11.19,
+    "n_records": 1385,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-09-08",
+    "rmse": 10.574,
+    "mae": 6.004,
+    "mean_actual": 12.37,
+    "mean_predicted": 11.21,
+    "n_records": 1382,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-09-15",
+    "rmse": 19.359,
+    "mae": 6.751,
+    "mean_actual": 13.29,
+    "mean_predicted": 11.22,
+    "n_records": 1375,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-09-22",
+    "rmse": 23.882,
+    "mae": 7.677,
+    "mean_actual": 14.34,
+    "mean_predicted": 11.26,
+    "n_records": 1369,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-09-29",
+    "rmse": 21.67,
+    "mae": 6.753,
+    "mean_actual": 13.73,
+    "mean_predicted": 11.26,
+    "n_records": 1368,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-10-06",
+    "rmse": 36.944,
+    "mae": 8.477,
+    "mean_actual": 14.93,
+    "mean_predicted": 11.27,
+    "n_records": 1360,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-10-13",
+    "rmse": 37.864,
+    "mae": 9.11,
+    "mean_actual": 15.76,
+    "mean_predicted": 11.34,
+    "n_records": 1356,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-10-20",
+    "rmse": 28.532,
+    "mae": 7.259,
+    "mean_actual": 13.09,
+    "mean_predicted": 11.2,
+    "n_records": 1381,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-10-27",
+    "rmse": 11.563,
+    "mae": 6.114,
+    "mean_actual": 10.85,
+    "mean_predicted": 11.25,
+    "n_records": 1356,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-11-03",
+    "rmse": 13.916,
+    "mae": 5.896,
+    "mean_actual": 10.35,
+    "mean_predicted": 11.31,
+    "n_records": 1348,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-11-10",
+    "rmse": 28.952,
+    "mae": 7.297,
+    "mean_actual": 11.11,
+    "mean_predicted": 11.33,
+    "n_records": 1347,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-11-17",
+    "rmse": 13.445,
+    "mae": 5.403,
+    "mean_actual": 9.98,
+    "mean_predicted": 11.17,
+    "n_records": 1366,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-11-24",
+    "rmse": 47.915,
+    "mae": 10.75,
+    "mean_actual": 14.75,
+    "mean_predicted": 11.25,
+    "n_records": 1358,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-12-01",
+    "rmse": 60.42,
+    "mae": 12.469,
+    "mean_actual": 17.93,
+    "mean_predicted": 8.67,
+    "n_records": 1351,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-12-08",
+    "rmse": 58.597,
+    "mae": 12.463,
+    "mean_actual": 17.57,
+    "mean_predicted": 8.71,
+    "n_records": 1332,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-12-15",
+    "rmse": 25.863,
+    "mae": 5.904,
+    "mean_actual": 9.74,
+    "mean_predicted": 8.67,
+    "n_records": 1350,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-12-22",
+    "rmse": 8.23,
+    "mae": 4.687,
+    "mean_actual": 7.58,
+    "mean_predicted": 8.67,
+    "n_records": 1335,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2025-12-29",
+    "rmse": 8.168,
+    "mae": 4.683,
+    "mean_actual": 7.89,
+    "mean_predicted": 8.62,
+    "n_records": 1355,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2026-01-05",
+    "rmse": 8.416,
+    "mae": 4.28,
+    "mean_actual": 7.95,
+    "mean_predicted": 8.59,
+    "n_records": 1370,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2026-01-12",
+    "rmse": 7.147,
+    "mae": 4.075,
+    "mean_actual": 7.55,
+    "mean_predicted": 8.65,
+    "n_records": 1341,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2026-01-19",
+    "rmse": 11.123,
+    "mae": 4.204,
+    "mean_actual": 7.63,
+    "mean_predicted": 8.7,
+    "n_records": 1314,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2026-01-26",
+    "rmse": 9.097,
+    "mae": 4.204,
+    "mean_actual": 6.96,
+    "mean_predicted": 8.75,
+    "n_records": 1303,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2026-02-02",
+    "rmse": 7.729,
+    "mae": 4.203,
+    "mean_actual": 7.3,
+    "mean_predicted": 8.73,
+    "n_records": 1329,
+    "source": "backfill"
+  },
+  {
+    "week_start": "2026-02-09",
+    "rmse": 8.323,
+    "mae": 6.355,
+    "mean_actual": 4.3,
+    "mean_predicted": 10.62,
+    "n_records": 40,
+    "source": "backfill"
+  }
+]

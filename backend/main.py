@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import pickle
 
-from routers import predict
+from routers import predict, accuracy
 
 # Load models once at startup, share via app.state
 def load_models():
@@ -35,6 +35,7 @@ app.add_middleware(
 )
 
 app.include_router(predict.router, prefix="/api")
+app.include_router(accuracy.router, prefix="/api")
 
 @app.get("/api/health")
 def health():

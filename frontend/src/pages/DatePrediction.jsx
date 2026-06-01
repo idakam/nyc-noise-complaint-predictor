@@ -42,18 +42,21 @@ export default function DatePrediction() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [result, setResult] = useState(null)
+  const [typeData, setTypeData] = useState(null)
 
   const handlePredict = async () => {
     setLoading(true)
     setError(null)
     try {
       const data = await api.predictDate({
-        borough,
-        neighborhood,
-        date,
-        time_bucket: timeBucket,
+        borough, neighborhood, date, time_bucket: timeBucket,
       })
       setResult(data)
+
+      // Fetch type distribution in parallel
+      const types = await api.getTypeDistribution(borough, data.season, timeBucket)
+        .catch(() => null)
+      setTypeData(types)
     } catch (e) {
       setError(e.message)
     } finally {
@@ -140,12 +143,11 @@ export default function DatePrediction() {
         <>
           {/* Main stats */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
-            <StatCard label="Predicted Volume" value={result.predicted_volume} sub="complaints / week" accent />
-            <StatCard label="Risk Level" value={result.risk_level}
-              sub={`color: ${riskColor(result.risk_level)}`} />
-            <StatCard label="Expected Range"
+            <StatCard label="Expected Noise Incidents" value={result.predicted_volume} sub={`Typical for a ${result.day} ${result.time_bucket} in ${new Date(result.date).toLocaleString('default', { month: 'long' })}`} accent />
+            <StatCard label="Risk Level" value={result.risk_level} />
+            <StatCard label="Typical Range"
               value={`${result.lower_bound}–${result.upper_bound}`}
-              sub="±2.9 complaint margin"
+              sub="incidents, ±2.9 margin"
             />
             <StatCard label="Day" value={result.day} sub={result.season} />
           </div>
@@ -159,25 +161,22 @@ export default function DatePrediction() {
           }}>
             <div style={{ fontSize: '0.7rem', fontFamily: 'DM Mono, monospace',
               color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1rem' }}>
-              PREDICTION RANGE
+              EXPECTED RANGE
             </div>
 
             {/* Range visualization */}
             <div style={{ position: 'relative', height: '32px', marginBottom: '0.5rem' }}>
-              {/* Track */}
               <div style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 left: 0, right: 0, height: '4px',
                 background: 'var(--border)', borderRadius: '2px',
               }} />
-              {/* Range fill */}
               <div style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 left: '15%', right: '15%', height: '4px',
                 background: riskColor(result.risk_level) + '66',
                 borderRadius: '2px',
               }} />
-              {/* Point estimate */}
               <div style={{
                 position: 'absolute', top: '50%', left: '50%',
                 transform: 'translate(-50%, -50%)',
@@ -190,20 +189,68 @@ export default function DatePrediction() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between',
               fontSize: '0.75rem', fontFamily: 'DM Mono, monospace', color: 'var(--text-muted)' }}>
-              <span>{result.lower_bound} low</span>
+              <span>{result.lower_bound} quieter</span>
               <span style={{ color: riskColor(result.risk_level), fontWeight: 600 }}>
-                {result.predicted_volume} predicted
+                {result.predicted_volume} typical
               </span>
-              <span>{result.upper_bound} high</span>
+              <span>{result.upper_bound} busier</span>
             </div>
 
             <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              Based on historical patterns, expect approximately <strong style={{ color: 'var(--text)' }}>
-                {result.predicted_volume} complaints
-              </strong> in {result.neighborhood} during {result.time_bucket} hours
-              on {result.day}s in {result.season}.
+              Typical for a <strong style={{ color: 'var(--text)' }}>{result.day} {result.time_bucket}</strong> in <strong style={{ color: 'var(--text)' }}>{new Date(result.date).toLocaleString('default', { month: 'long' })}</strong> — {result.neighborhood} typically sees <strong style={{ color: riskColor(result.risk_level) }}>{result.predicted_volume}</strong> noise incidents during this window, with a <strong style={{ color: 'var(--text)' }}>{result.risk_level.toLowerCase()} activity level</strong>.
             </div>
           </div>
+
+          {/* Type distribution */}
+          {typeData && (
+            <div style={{
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
+              borderRadius: '8px',
+              padding: '1.25rem 1.5rem',
+              marginTop: '1rem',
+            }}>
+              <div style={{
+                fontSize: '0.7rem', fontFamily: 'DM Mono, monospace',
+                color: 'var(--text-muted)', letterSpacing: '0.1em',
+                textTransform: 'uppercase', marginBottom: '1rem',
+              }}>
+                Most Likely Complaint Types
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                {typeData.distribution.map((item, i) => (
+                  <div key={item.type}>
+                    <div style={{
+                      display: 'flex', justifyContent: 'space-between',
+                      marginBottom: '0.3rem', fontSize: '0.8rem',
+                    }}>
+                      <span style={{ fontWeight: i === 0 ? 600 : 400 }}>{item.type}</span>
+                      <span style={{
+                        fontFamily: 'DM Mono, monospace', fontSize: '0.75rem',
+                        color: i === 0 ? 'var(--accent)' : 'var(--text-muted)',
+                      }}>
+                        {item.pct}%
+                      </span>
+                    </div>
+                    <div style={{
+                      height: '4px', background: 'var(--border)',
+                      borderRadius: '2px', overflow: 'hidden',
+                    }}>
+                      <div style={{
+                        height: '100%',
+                        width: `${item.pct}%`,
+                        background: i === 0 ? 'var(--accent)' : 'var(--text-muted)',
+                        borderRadius: '2px',
+                        opacity: i === 0 ? 1 : 0.4,
+                        transition: 'width 0.6s ease',
+                      }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </>
       )}
     </div>
