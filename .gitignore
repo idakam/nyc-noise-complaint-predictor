@@ -1,21 +1,22 @@
-backend/data/processed/noise_cleaned.csv
-backend/data/processed/noise_cleaned.parquet
-backend/data/processed/aggregated_data.csv
-backend/.venv/
-backend/venv/
-backend/__pycache__/
+# Python
+__pycache__/
 *.pyc
-backend/src/__pycache__/
-outputs/**.csv
-backend/.ipynb_checkpoints/
-**/.ipynb_checkpoints/
-*-checkpoint.ipynb
-backend/notebooks/.ipynb_checkpoints
 *.pyo
 .env
-.venv/
-venv/
-*.egg-info/
-.DS_Store
-backend/data/processed/*.parquet
+.env.local
 
+# Virtual env
+venv/
+.venv/
+
+# Data - raw and large files
+backend/data/raw/
+backend/notebooks/
+backend/outputs/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Mac
+.DS_Store

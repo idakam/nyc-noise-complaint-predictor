@@ -2,11 +2,13 @@ import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import HotspotMap from './pages/HotspotMap'
 import WeeklyPattern from './pages/WeeklyPattern'
 import DatePrediction from './pages/DatePrediction'
+import Accuracy from './pages/Accuracy'
 
 const NAV = [
-  { to: '/',        label: 'Hotspot Map' },
-  { to: '/weekly',  label: 'Weekly Pattern' },
-  { to: '/predict', label: 'Date Prediction' },
+  { to: '/',          label: 'Hotspot Map' },
+  { to: '/weekly',    label: 'Weekly Pattern' },
+  { to: '/predict',   label: 'Date Prediction' },
+  { to: '/accuracy',  label: 'Model Accuracy' },
 ]
 
 export default function App() {
@@ -64,9 +66,10 @@ export default function App() {
         {/* Page content */}
         <main style={{ flex: 1 }}>
           <Routes>
-            <Route path="/"        element={<HotspotMap />} />
-            <Route path="/weekly"  element={<WeeklyPattern />} />
-            <Route path="/predict" element={<DatePrediction />} />
+            <Route path="/"          element={<HotspotMap />} />
+            <Route path="/weekly"    element={<WeeklyPattern />} />
+            <Route path="/predict"   element={<DatePrediction />} />
+            <Route path="/accuracy"  element={<Accuracy />} />
           </Routes>
         </main>
       </div>

@@ -125,8 +125,8 @@ export default function WeeklyPattern() {
         <>
           {/* Summary stats */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-            <StatCard label="Total Weekly" value={results.week_total} sub="complaints" accent />
-            <StatCard label="Season" value={results.season} />
+            <StatCard label="Total Expected Incidents" value={results.week_total} sub="across all time windows" accent />
+            <StatCard label="Season" value={results.season} sub={results.month_name} />
             <StatCard label="Peak Time"
               value={results.peak_times[0]?.day.slice(0, 3)}
               sub={results.peak_times[0]?.time}
@@ -215,7 +215,7 @@ export default function WeeklyPattern() {
                   </span>
                   <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.8rem',
                     color: 'var(--text-muted)' }}>
-                    {p.volume} complaints
+                    {p.volume} incidents
                   </span>
                 </div>
               ))}
