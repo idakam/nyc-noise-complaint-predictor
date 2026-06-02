@@ -39,6 +39,25 @@ jobs:
             --ExecutePreprocessor.timeout=3600 \
             03_feature_engineering.ipynb
 
+      - name: Check data files exist
+        working-directory: backend
+        run: |
+          echo "=== data/processed contents ==="
+          ls -lh data/processed/
+          echo "=== checking parquet row count ==="
+          python -c "
+          import pandas as pd
+          import os
+          for f in os.listdir('data/processed'):
+              if f.endswith('.parquet') or f.endswith('.csv'):
+                  path = f'data/processed/{f}'
+                  try:
+                      df = pd.read_parquet(path) if f.endswith('.parquet') else pd.read_csv(path)
+                      print(f'{f}: {len(df):,} rows')
+                  except Exception as e:
+                      print(f'{f}: ERROR - {e}')
+          "
+
       - name: Run model training
         working-directory: backend/notebooks
         run: |
