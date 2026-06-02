@@ -143,7 +143,7 @@ export default function DatePrediction() {
         <>
           {/* Main stats */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
-            <StatCard label="Expected Noise Incidents" value={result.predicted_volume} sub={`Typical for a ${result.day} ${result.time_bucket} in ${new Date(result.date).toLocaleString('default', { month: 'long' })}`} accent />
+            <StatCard label="Expected Noise Incidents" value={result.predicted_volume} sub={`Typical for a ${result.day} ${result.time_bucket} in ${new Date(result.date).toLocaleString('default', { month: 'long' })}`} color={riskColor(result.risk_level)} />
             <StatCard label="Risk Level" value={result.risk_level} />
             <StatCard label="Typical Range"
               value={`${result.lower_bound}–${result.upper_bound}`}
@@ -152,54 +152,7 @@ export default function DatePrediction() {
             <StatCard label="Day" value={result.day} sub={result.season} />
           </div>
 
-          {/* Confidence bar */}
-          <div style={{
-            background: 'var(--surface)',
-            border: '1px solid var(--border)',
-            borderRadius: '8px',
-            padding: '1.25rem 1.5rem',
-          }}>
-            <div style={{ fontSize: '0.7rem', fontFamily: 'DM Mono, monospace',
-              color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1rem' }}>
-              EXPECTED RANGE
-            </div>
-
-            {/* Range visualization */}
-            <div style={{ position: 'relative', height: '32px', marginBottom: '0.5rem' }}>
-              <div style={{
-                position: 'absolute', top: '50%', transform: 'translateY(-50%)',
-                left: 0, right: 0, height: '4px',
-                background: 'var(--border)', borderRadius: '2px',
-              }} />
-              <div style={{
-                position: 'absolute', top: '50%', transform: 'translateY(-50%)',
-                left: '15%', right: '15%', height: '4px',
-                background: riskColor(result.risk_level) + '66',
-                borderRadius: '2px',
-              }} />
-              <div style={{
-                position: 'absolute', top: '50%', left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '14px', height: '14px',
-                borderRadius: '50%',
-                background: riskColor(result.risk_level),
-                border: '2px solid var(--bg)',
-              }} />
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between',
-              fontSize: '0.75rem', fontFamily: 'DM Mono, monospace', color: 'var(--text-muted)' }}>
-              <span>{result.lower_bound} quieter</span>
-              <span style={{ color: riskColor(result.risk_level), fontWeight: 600 }}>
-                {result.predicted_volume} typical
-              </span>
-              <span>{result.upper_bound} busier</span>
-            </div>
-
-            <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              Typical for a <strong style={{ color: 'var(--text)' }}>{result.day} {result.time_bucket}</strong> in <strong style={{ color: 'var(--text)' }}>{new Date(result.date).toLocaleString('default', { month: 'long' })}</strong> — {result.neighborhood} typically sees <strong style={{ color: riskColor(result.risk_level) }}>{result.predicted_volume}</strong> noise burden incidents during this window, with a <strong style={{ color: 'var(--text)' }}>{result.risk_level.toLowerCase()} activity level</strong>.
-            </div>
-          </div>
+        
 
           {/* Type distribution */}
           {typeData && (
@@ -228,7 +181,7 @@ export default function DatePrediction() {
                       <span style={{ fontWeight: i === 0 ? 600 : 400 }}>{item.type}</span>
                       <span style={{
                         fontFamily: 'DM Mono, monospace', fontSize: '0.75rem',
-                        color: i === 0 ? 'var(--accent)' : 'var(--text-muted)',
+                        color: i === 0 ? riskColor(result.risk_level) : 'var(--text-muted)',
                       }}>
                         {item.pct}%
                       </span>
@@ -240,7 +193,7 @@ export default function DatePrediction() {
                       <div style={{
                         height: '100%',
                         width: `${item.pct}%`,
-                        background: i === 0 ? 'var(--accent)' : 'var(--text-muted)',
+                        background: i === 0 ? riskColor(result.risk_level) : 'var(--text-muted)',
                         borderRadius: '2px',
                         opacity: i === 0 ? 1 : 0.4,
                         transition: 'width 0.6s ease',
@@ -256,3 +209,54 @@ export default function DatePrediction() {
     </div>
   )
 }
+
+
+
+  // Confidence bar
+  //         <div style={{
+  //           background: 'var(--surface)',
+  //           border: '1px solid var(--border)',
+  //           borderRadius: '8px',
+  //           padding: '1.25rem 1.5rem',
+  //         }}>
+  //           <div style={{ fontSize: '0.7rem', fontFamily: 'DM Mono, monospace',
+  //             color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1rem' }}>
+  //             EXPECTED RANGE
+  //           </div>
+
+  //           {/* Range visualization */}
+  //           <div style={{ position: 'relative', height: '32px', marginBottom: '0.5rem' }}>
+  //             <div style={{
+  //               position: 'absolute', top: '50%', transform: 'translateY(-50%)',
+  //               left: 0, right: 0, height: '4px',
+  //               background: 'var(--border)', borderRadius: '2px',
+  //             }} />
+  //             <div style={{
+  //               position: 'absolute', top: '50%', transform: 'translateY(-50%)',
+  //               left: '15%', right: '15%', height: '4px',
+  //               background: riskColor(result.risk_level) + '66',
+  //               borderRadius: '2px',
+  //             }} />
+  //             <div style={{
+  //               position: 'absolute', top: '50%', left: '50%',
+  //               transform: 'translate(-50%, -50%)',
+  //               width: '14px', height: '14px',
+  //               borderRadius: '50%',
+  //               background: riskColor(result.risk_level),
+  //               border: '2px solid var(--bg)',
+  //             }} />
+  //           </div>
+
+  //           <div style={{ display: 'flex', justifyContent: 'space-between',
+  //             fontSize: '0.75rem', fontFamily: 'DM Mono, monospace', color: 'var(--text-muted)' }}>
+  //             <span>{result.lower_bound} quieter</span>
+  //             <span style={{ color: riskColor(result.risk_level), fontWeight: 600 }}>
+  //               {result.predicted_volume} typical
+  //             </span>
+  //             <span>{result.upper_bound} busier</span>
+  //           </div>
+
+  //           <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+  //             Typical for a <strong style={{ color: 'var(--text)' }}>{result.day} {result.time_bucket}</strong> in <strong style={{ color: 'var(--text)' }}>{new Date(result.date).toLocaleString('default', { month: 'long' })}</strong> — {result.neighborhood} typically sees <strong style={{ color: riskColor(result.risk_level) }}>{result.predicted_volume}</strong> noise burden incidents during this window, with a <strong style={{ color: 'var(--text)' }}>{result.risk_level.toLowerCase()} activity level</strong>.
+  //           </div>
+  //         </div>

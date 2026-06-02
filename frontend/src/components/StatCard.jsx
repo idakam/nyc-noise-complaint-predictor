@@ -1,15 +1,17 @@
-export default function StatCard({ label, value, sub, accent = false }) {
+export default function StatCard({ label, value, sub, accent = false, color = null }) {
+  const resolvedColor = color ?? (accent ? 'var(--accent)' : null);
+
   return (
     <div style={{
       background: 'var(--surface)',
-      border: `1px solid ${accent ? 'var(--accent)' : 'var(--border)'}`,
+      border: `1px solid ${resolvedColor ?? 'var(--border)'}`,
       borderRadius: '8px',
       padding: '1.25rem 1.5rem',
     }}>
       <div style={{
         fontSize: '0.7rem',
         fontFamily: 'DM Mono, monospace',
-        color: accent ? 'var(--accent)' : 'var(--text-muted)',
+        color: resolvedColor ?? 'var(--text-muted)',
         letterSpacing: '0.12em',
         textTransform: 'uppercase',
         marginBottom: '0.5rem',
@@ -20,7 +22,7 @@ export default function StatCard({ label, value, sub, accent = false }) {
         fontSize: '2rem',
         fontWeight: 800,
         lineHeight: 1,
-        color: accent ? 'var(--accent)' : 'var(--text)',
+        color: resolvedColor ?? 'var(--text)',
       }}>
         {value}
       </div>
