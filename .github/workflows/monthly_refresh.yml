@@ -24,25 +24,28 @@ jobs:
         run: pip install -r backend/requirements.txt
 
       - name: Run ingestion
+        working-directory: backend/notebooks
         run: |
           jupyter nbconvert \
             --to notebook --execute --inplace \
             --ExecutePreprocessor.timeout=3600 \
-            backend/notebooks/00_ingest.ipynb
+            00_ingest.ipynb
 
       - name: Run feature engineering
+        working-directory: backend/notebooks
         run: |
           jupyter nbconvert \
             --to notebook --execute --inplace \
             --ExecutePreprocessor.timeout=3600 \
-            backend/notebooks/02_feature_engineering.ipynb
+            03_feature_engineering.ipynb
 
       - name: Run model training
+        working-directory: backend/notebooks
         run: |
           jupyter nbconvert \
             --to notebook --execute --inplace \
             --ExecutePreprocessor.timeout=3600 \
-            backend/notebooks/03_model_training.ipynb
+            04_model_training.ipynb
 
       - name: Commit updated files to GitHub
         run: |
@@ -55,7 +58,6 @@ jobs:
 
       - name: Push updated artifacts to HuggingFace Space
         run: |
-          pip install huggingface_hub
           python - <<'EOF'
           from huggingface_hub import HfApi
           import os
