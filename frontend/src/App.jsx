@@ -1,17 +1,31 @@
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import HotspotMap from './pages/HotspotMap'
 import WeeklyPattern from './pages/WeeklyPattern'
 import DatePrediction from './pages/DatePrediction'
 import Accuracy from './pages/Accuracy'
+import { api } from './api/client'
 
 const NAV = [
   { to: '/',          label: 'Hotspot Map' },
   { to: '/weekly',    label: 'Weekly Pattern' },
   { to: '/predict',   label: 'Date Prediction' },
-  { to: '/accuracy',  label: 'Model Accuracy' },
+  // { to: '/accuracy',  label: 'Model Accuracy' },
 ]
 
 export default function App() {
+  const [lastUpdated, setLastUpdated] = useState(null)
+
+  useEffect(() => {
+    api.getPipelineStatus()
+      .then(data => {
+        const d = data?.last_run?.run_at || data?.model_metadata?.train_cutoff
+        setLastUpdated(d ? d.slice(0, 10) : null)
+      })
+      .catch(() => null)
+  }, [])
+
+
   return (
     <BrowserRouter>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -61,6 +75,27 @@ export default function App() {
               </NavLink>
             ))}
           </nav>
+           {lastUpdated && (
+            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <span style={{
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                background: '#2ed573',
+                flexShrink: 0,
+              }} />
+              <span style={{
+                fontFamily: 'DM Mono, monospace',
+                fontSize: '0.65rem',
+                color: 'var(--text-muted)',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                whiteSpace: 'nowrap',
+              }}>
+                Model Last Updated {lastUpdated}
+              </span>
+            </div>
+          )}
         </header>
 
         {/* Page content */}
