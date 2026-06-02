@@ -11,3 +11,5 @@ pyarrow
 huggingface_hub
 datasets
 lightgbm
+matplotlib
+seaborn
