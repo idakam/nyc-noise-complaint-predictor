@@ -197,7 +197,7 @@ export default function DatePrediction() {
             </div>
 
             <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              Typical for a <strong style={{ color: 'var(--text)' }}>{result.day} {result.time_bucket}</strong> in <strong style={{ color: 'var(--text)' }}>{new Date(result.date).toLocaleString('default', { month: 'long' })}</strong> — {result.neighborhood} typically sees <strong style={{ color: riskColor(result.risk_level) }}>{result.predicted_volume}</strong> noise incidents during this window, with a <strong style={{ color: 'var(--text)' }}>{result.risk_level.toLowerCase()} activity level</strong>.
+              Typical for a <strong style={{ color: 'var(--text)' }}>{result.day} {result.time_bucket}</strong> in <strong style={{ color: 'var(--text)' }}>{new Date(result.date).toLocaleString('default', { month: 'long' })}</strong> — {result.neighborhood} typically sees <strong style={{ color: riskColor(result.risk_level) }}>{result.predicted_volume}</strong> noise burden incidents during this window, with a <strong style={{ color: 'var(--text)' }}>{result.risk_level.toLowerCase()} activity level</strong>.
             </div>
           </div>
 
