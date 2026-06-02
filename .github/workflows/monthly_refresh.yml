@@ -1,0 +1,94 @@
+name: Monthly 311 data refresh
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
+
+      - name: Run ingestion
+        run: |
+          jupyter nbconvert \
+            --to notebook --execute --inplace \
+            --ExecutePreprocessor.timeout=3600 \
+            backend/notebooks/00_ingest.ipynb
+
+      - name: Run feature engineering
+        run: |
+          jupyter nbconvert \
+            --to notebook --execute --inplace \
+            --ExecutePreprocessor.timeout=3600 \
+            backend/notebooks/02_feature_engineering.ipynb
+
+      - name: Run model training
+        run: |
+          jupyter nbconvert \
+            --to notebook --execute --inplace \
+            --ExecutePreprocessor.timeout=3600 \
+            backend/notebooks/03_model_training.ipynb
+
+      - name: Commit updated files to GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add backend/data/processed/
+          git add backend/models/
+          git diff --staged --quiet || git commit -m "auto: 311 refresh $(date +%Y-%m-%d)"
+          git push
+
+      - name: Push updated artifacts to HuggingFace Space
+        run: |
+          pip install huggingface_hub
+          python - <<'EOF'
+          from huggingface_hub import HfApi
+          import os
+
+          api = HfApi()
+          token = os.environ["HF_TOKEN"]
+          repo_id = "idakam/nyc-noise-backend"
+
+          files_to_push = [
+              "backend/data/processed/noise_cleaned.parquet",
+              "backend/data/processed/aggregated_data.parquet",
+              "backend/data/processed/last_ingested.txt",
+              "backend/data/processed/type_distribution.json",
+              "backend/data/processed/accuracy_log.json",
+              "backend/data/processed/pipeline_runs.json",
+              "backend/models/complaint_volume_model.pkl",
+              "backend/models/model_metadata.pkl",
+              "backend/models/feature_columns.pkl",
+          ]
+
+          for path in files_to_push:
+              if os.path.exists(path):
+                  repo_path = path.replace("backend/", "", 1)
+                  api.upload_file(
+                      path_or_fileobj=path,
+                      path_in_repo=repo_path,
+                      repo_id=repo_id,
+                      repo_type="space",
+                      token=token,
+                  )
+                  print(f"✓ {path} → {repo_path}")
+              else:
+                  print(f"  skipped (not found): {path}")
+          EOF
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
