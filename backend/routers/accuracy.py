@@ -77,6 +77,13 @@ def get_accuracy():
         }
     }
 
+@router.get("/pipeline/last-updated")
+def get_last_updated():
+    path = Path("data/processed/last_ingested.txt")
+    if not path.exists():
+        return {"last_updated": None}
+    with open(path) as f:
+        return {"last_updated": f.read().strip()[:10]}
 @router.get("/pipeline/status")
 def get_pipeline_status():
     """Return pipeline run history and model metadata."""

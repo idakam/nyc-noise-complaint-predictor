@@ -28,9 +28,13 @@ export const api = {
   getAccuracy: () =>
     request('/api/accuracy'),
 
-  getPipelineStatus: () =>
-    request('/api/pipeline/status'),
+  // getPipelineStatus: () =>
+  //   request('/api/pipeline/status'),
+
+  getLastUpdated: () =>
+  request('/api/pipeline/last-updated'),
 
   getTypeDistribution: (borough, season, timeBucket) =>
     request(`/api/predict/type?borough=${borough}&season=${season}&time_bucket=${timeBucket}`),
 }
+

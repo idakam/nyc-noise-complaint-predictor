@@ -17,13 +17,19 @@ export default function App() {
   const [lastUpdated, setLastUpdated] = useState(null)
 
   useEffect(() => {
-    api.getPipelineStatus()
-      .then(data => {
-        const d = data?.last_run?.run_at || data?.model_metadata?.train_cutoff
-        setLastUpdated(d ? d.slice(0, 10) : null)
-      })
-      .catch(() => null)
-  }, [])
+  api.getLastUpdated()
+    .then(d => setLastUpdated(d?.last_updated || null))
+    .catch(() => null)
+}, [])
+
+  // useEffect(() => {
+  //   api.getPipelineStatus()
+  //     .then(data => {
+  //       const d = data?.last_run?.run_at || data?.model_metadata?.train_cutoff
+  //       setLastUpdated(d ? d.slice(0, 10) : null)
+  //     })
+  //     .catch(() => null)
+  // }, [])
 
 
   return (
