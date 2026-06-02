@@ -45,7 +45,7 @@ jobs:
           jupyter nbconvert \
             --to notebook --execute --inplace \
             --ExecutePreprocessor.timeout=3600 \
-            04_model_training.ipynb
+            04_training_models.ipynb
 
       - name: Commit updated files to GitHub
         run: |
