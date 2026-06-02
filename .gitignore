@@ -10,9 +10,9 @@ venv/
 .venv/
 
 # Data - raw and large files
-backend/data/raw/
-backend/notebooks/
-backend/outputs/
+# backend/data/raw/
+# backend/notebooks/
+# backend/outputs/
 
 # Node
 frontend/node_modules/
@@ -20,4 +20,4 @@ frontend/dist/
 
 # Mac
 .DS_Store
-backend/data/processed/noise_cleaned.parquet
+# backend/data/processed/noise_cleaned.parquet
