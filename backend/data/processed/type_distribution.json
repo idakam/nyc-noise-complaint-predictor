@@ -2,79 +2,61 @@
   "BRONX|Fall|afternoon": [
     {
       "type": "Loud Music/Party",
-      "pct": 71.2
+      "pct": 68.8
     },
     {
       "type": "Banging/Pounding",
-      "pct": 14.8
+      "pct": 14.3
+    },
+    {
+      "type": "Other",
+      "pct": 6.3
     },
     {
       "type": "Car/Truck Music",
-      "pct": 5.6
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 4.8
+      "pct": 5.4
     }
   ],
   "BRONX|Fall|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 72.6
+      "pct": 69.5
     },
     {
       "type": "Banging/Pounding",
-      "pct": 12.7
+      "pct": 12.1
     },
     {
       "type": "Car/Truck Music",
-      "pct": 7.5
+      "pct": 7.2
     },
     {
-      "type": "Loud Talking",
-      "pct": 4.7
+      "type": "Other",
+      "pct": 6.0
     }
   ],
   "BRONX|Fall|morning": [
     {
       "type": "Loud Music/Party",
-      "pct": 67.2
+      "pct": 65.1
     },
     {
       "type": "Banging/Pounding",
-      "pct": 18.3
+      "pct": 17.7
     },
     {
       "type": "Other",
-      "pct": 5.7
+      "pct": 8.6
     },
     {
       "type": "Loud Talking",
-      "pct": 4.3
+      "pct": 4.2
     }
   ],
   "BRONX|Fall|night": [
     {
       "type": "Loud Music/Party",
-      "pct": 76.7
-    },
-    {
-      "type": "Banging/Pounding",
-      "pct": 9.3
-    },
-    {
-      "type": "Car/Truck Music",
-      "pct": 6.9
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 4.7
-    }
-  ],
-  "BRONX|Fall|overnight": [
-    {
-      "type": "Loud Music/Party",
-      "pct": 77.2
+      "pct": 73.3
     },
     {
       "type": "Banging/Pounding",
@@ -82,11 +64,29 @@
     },
     {
       "type": "Car/Truck Music",
-      "pct": 6.5
+      "pct": 6.6
     },
     {
-      "type": "Loud Talking",
-      "pct": 4.7
+      "type": "Other",
+      "pct": 6.1
+    }
+  ],
+  "BRONX|Fall|overnight": [
+    {
+      "type": "Loud Music/Party",
+      "pct": 74.7
+    },
+    {
+      "type": "Banging/Pounding",
+      "pct": 8.6
+    },
+    {
+      "type": "Car/Truck Music",
+      "pct": 6.3
+    },
+    {
+      "type": "Other",
+      "pct": 5.0
     }
   ],
   "BRONX|Spring|afternoon": [
@@ -182,11 +182,11 @@
   "BRONX|Summer|afternoon": [
     {
       "type": "Loud Music/Party",
-      "pct": 62.8
+      "pct": 62.7
     },
     {
       "type": "Other",
-      "pct": 14.6
+      "pct": 14.7
     },
     {
       "type": "Banging/Pounding",
@@ -200,7 +200,7 @@
   "BRONX|Summer|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 67.0
+      "pct": 66.9
     },
     {
       "type": "Other",
@@ -222,7 +222,7 @@
     },
     {
       "type": "Other",
-      "pct": 17.0
+      "pct": 17.1
     },
     {
       "type": "Banging/Pounding",
@@ -240,7 +240,7 @@
     },
     {
       "type": "Other",
-      "pct": 12.4
+      "pct": 12.5
     },
     {
       "type": "Car/Truck Music",
@@ -254,7 +254,7 @@
   "BRONX|Summer|overnight": [
     {
       "type": "Loud Music/Party",
-      "pct": 71.0
+      "pct": 70.9
     },
     {
       "type": "Other",
@@ -362,91 +362,91 @@
   "BROOKLYN|Fall|afternoon": [
     {
       "type": "Loud Music/Party",
-      "pct": 43.3
+      "pct": 40.5
     },
     {
       "type": "Banging/Pounding",
-      "pct": 22.8
+      "pct": 21.3
     },
     {
       "type": "Other",
-      "pct": 15.6
+      "pct": 21.1
     },
     {
       "type": "Loud Talking",
-      "pct": 8.8
+      "pct": 8.2
     }
   ],
   "BROOKLYN|Fall|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 58.7
+      "pct": 54.7
     },
     {
       "type": "Banging/Pounding",
-      "pct": 16.3
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 8.3
+      "pct": 15.1
     },
     {
       "type": "Other",
-      "pct": 6.3
+      "pct": 12.8
+    },
+    {
+      "type": "Loud Talking",
+      "pct": 7.8
     }
   ],
   "BROOKLYN|Fall|morning": [
     {
+      "type": "Other",
+      "pct": 29.3
+    },
+    {
       "type": "Banging/Pounding",
-      "pct": 29.1
+      "pct": 27.0
     },
     {
       "type": "Loud Music/Party",
-      "pct": 24.3
-    },
-    {
-      "type": "Other",
-      "pct": 23.8
+      "pct": 22.5
     },
     {
       "type": "Noise: Construction Before/After Hours (NM1)",
-      "pct": 9.6
+      "pct": 8.9
     }
   ],
   "BROOKLYN|Fall|night": [
     {
       "type": "Loud Music/Party",
-      "pct": 68.1
+      "pct": 64.1
     },
     {
       "type": "Banging/Pounding",
-      "pct": 11.2
+      "pct": 10.6
+    },
+    {
+      "type": "Other",
+      "pct": 9.6
     },
     {
       "type": "Loud Talking",
-      "pct": 9.8
-    },
-    {
-      "type": "Car/Truck Music",
-      "pct": 4.3
+      "pct": 9.2
     }
   ],
   "BROOKLYN|Fall|overnight": [
     {
       "type": "Loud Music/Party",
-      "pct": 60.1
+      "pct": 56.3
     },
     {
       "type": "Banging/Pounding",
-      "pct": 14.6
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 11.6
+      "pct": 13.7
     },
     {
       "type": "Other",
-      "pct": 5.8
+      "pct": 11.8
+    },
+    {
+      "type": "Loud Talking",
+      "pct": 10.9
     }
   ],
   "BROOKLYN|Spring|afternoon": [
@@ -542,11 +542,11 @@
   "BROOKLYN|Summer|afternoon": [
     {
       "type": "Loud Music/Party",
-      "pct": 40.9
+      "pct": 40.8
     },
     {
       "type": "Other",
-      "pct": 30.0
+      "pct": 30.1
     },
     {
       "type": "Banging/Pounding",
@@ -560,11 +560,11 @@
   "BROOKLYN|Summer|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 57.1
+      "pct": 57.0
     },
     {
       "type": "Other",
-      "pct": 19.6
+      "pct": 19.7
     },
     {
       "type": "Banging/Pounding",
@@ -578,7 +578,7 @@
   "BROOKLYN|Summer|morning": [
     {
       "type": "Other",
-      "pct": 38.8
+      "pct": 38.9
     },
     {
       "type": "Loud Music/Party",
@@ -586,7 +586,7 @@
     },
     {
       "type": "Banging/Pounding",
-      "pct": 21.2
+      "pct": 21.1
     },
     {
       "type": "Noise: Construction Before/After Hours (NM1)",
@@ -614,11 +614,11 @@
   "BROOKLYN|Summer|overnight": [
     {
       "type": "Loud Music/Party",
-      "pct": 54.5
+      "pct": 54.4
     },
     {
       "type": "Other",
-      "pct": 19.4
+      "pct": 19.5
     },
     {
       "type": "Banging/Pounding",
@@ -626,7 +626,7 @@
     },
     {
       "type": "Loud Talking",
-      "pct": 9.4
+      "pct": 9.3
     }
   ],
   "BROOKLYN|Winter|afternoon": [
@@ -722,91 +722,91 @@
   "MANHATTAN|Fall|afternoon": [
     {
       "type": "Loud Music/Party",
-      "pct": 39.8
+      "pct": 38.2
     },
     {
       "type": "Other",
-      "pct": 32.0
+      "pct": 34.8
     },
     {
       "type": "Banging/Pounding",
-      "pct": 12.1
+      "pct": 11.6
     },
     {
       "type": "Loud Talking",
-      "pct": 9.2
+      "pct": 8.9
     }
   ],
   "MANHATTAN|Fall|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 56.7
+      "pct": 54.1
     },
     {
       "type": "Other",
-      "pct": 13.2
+      "pct": 17.2
     },
     {
       "type": "Banging/Pounding",
-      "pct": 10.2
+      "pct": 9.8
     },
     {
       "type": "Loud Talking",
-      "pct": 9.3
+      "pct": 8.8
     }
   ],
   "MANHATTAN|Fall|morning": [
     {
       "type": "Other",
-      "pct": 34.7
+      "pct": 38.0
     },
     {
       "type": "Loud Music/Party",
-      "pct": 22.0
+      "pct": 20.8
     },
     {
       "type": "Banging/Pounding",
-      "pct": 19.4
+      "pct": 18.4
     },
     {
       "type": "Loud Talking",
-      "pct": 10.7
+      "pct": 10.1
     }
   ],
   "MANHATTAN|Fall|night": [
     {
       "type": "Loud Music/Party",
-      "pct": 64.0
+      "pct": 60.9
     },
     {
       "type": "Loud Talking",
-      "pct": 11.1
+      "pct": 10.5
+    },
+    {
+      "type": "Other",
+      "pct": 9.5
     },
     {
       "type": "Banging/Pounding",
-      "pct": 8.3
-    },
-    {
-      "type": "Noise: Construction Before/After Hours (NM1)",
-      "pct": 5.6
+      "pct": 7.9
     }
   ],
   "MANHATTAN|Fall|overnight": [
     {
       "type": "Loud Music/Party",
-      "pct": 54.0
+      "pct": 51.6
     },
     {
       "type": "Loud Talking",
-      "pct": 14.3
+      "pct": 13.7
     },
     {
       "type": "Banging/Pounding",
-      "pct": 12.2
+      "pct": 11.6
     },
     {
       "type": "Other",
-      "pct": 6.7
+      "pct": 10.9
     }
   ],
   "MANHATTAN|Spring|afternoon": [
@@ -906,7 +906,7 @@
     },
     {
       "type": "Other",
-      "pct": 35.9
+      "pct": 36.0
     },
     {
       "type": "Banging/Pounding",
@@ -924,11 +924,11 @@
     },
     {
       "type": "Other",
-      "pct": 22.4
+      "pct": 22.5
     },
     {
       "type": "Loud Talking",
-      "pct": 7.0
+      "pct": 6.9
     },
     {
       "type": "Banging/Pounding",
@@ -938,7 +938,7 @@
   "MANHATTAN|Summer|morning": [
     {
       "type": "Other",
-      "pct": 43.0
+      "pct": 43.1
     },
     {
       "type": "Loud Music/Party",
@@ -946,7 +946,7 @@
     },
     {
       "type": "Banging/Pounding",
-      "pct": 16.2
+      "pct": 16.1
     },
     {
       "type": "Loud Talking",
@@ -960,7 +960,7 @@
     },
     {
       "type": "Other",
-      "pct": 15.5
+      "pct": 15.6
     },
     {
       "type": "Loud Talking",
@@ -974,11 +974,11 @@
   "MANHATTAN|Summer|overnight": [
     {
       "type": "Loud Music/Party",
-      "pct": 52.9
+      "pct": 52.8
     },
     {
       "type": "Other",
-      "pct": 16.6
+      "pct": 16.7
     },
     {
       "type": "Loud Talking",
@@ -1082,91 +1082,91 @@
   "QUEENS|Fall|afternoon": [
     {
       "type": "Loud Music/Party",
-      "pct": 36.3
+      "pct": 34.3
     },
     {
       "type": "Other",
-      "pct": 26.4
+      "pct": 30.5
     },
     {
       "type": "Banging/Pounding",
-      "pct": 14.7
+      "pct": 13.9
     },
     {
       "type": "Loud Talking",
-      "pct": 8.6
+      "pct": 8.1
     }
   ],
   "QUEENS|Fall|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 55.8
-    },
-    {
-      "type": "Banging/Pounding",
-      "pct": 13.5
+      "pct": 52.2
     },
     {
       "type": "Other",
-      "pct": 9.6
+      "pct": 15.5
+    },
+    {
+      "type": "Banging/Pounding",
+      "pct": 12.6
     },
     {
       "type": "Loud Talking",
-      "pct": 8.0
+      "pct": 7.4
     }
   ],
   "QUEENS|Fall|morning": [
     {
       "type": "Other",
-      "pct": 28.4
+      "pct": 32.3
     },
     {
       "type": "Loud Music/Party",
-      "pct": 23.1
+      "pct": 21.9
     },
     {
       "type": "Banging/Pounding",
-      "pct": 19.1
+      "pct": 18.1
     },
     {
       "type": "Loud Talking",
-      "pct": 11.8
+      "pct": 11.2
     }
   ],
   "QUEENS|Fall|night": [
     {
       "type": "Loud Music/Party",
-      "pct": 69.0
+      "pct": 65.1
+    },
+    {
+      "type": "Other",
+      "pct": 9.8
     },
     {
       "type": "Banging/Pounding",
-      "pct": 9.5
+      "pct": 9.0
     },
     {
       "type": "Loud Talking",
-      "pct": 8.7
-    },
-    {
-      "type": "Car/Truck Music",
-      "pct": 4.8
+      "pct": 8.2
     }
   ],
   "QUEENS|Fall|overnight": [
     {
       "type": "Loud Music/Party",
-      "pct": 65.4
+      "pct": 62.1
     },
     {
       "type": "Loud Talking",
-      "pct": 10.0
+      "pct": 9.5
+    },
+    {
+      "type": "Other",
+      "pct": 9.4
     },
     {
       "type": "Banging/Pounding",
-      "pct": 9.8
-    },
-    {
-      "type": "Car/Truck Music",
-      "pct": 6.5
+      "pct": 9.3
     }
   ],
   "QUEENS|Spring|afternoon": [
@@ -1262,11 +1262,11 @@
   "QUEENS|Summer|afternoon": [
     {
       "type": "Other",
-      "pct": 35.4
+      "pct": 35.5
     },
     {
       "type": "Loud Music/Party",
-      "pct": 34.7
+      "pct": 34.6
     },
     {
       "type": "Banging/Pounding",
@@ -1280,7 +1280,7 @@
   "QUEENS|Summer|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 54.3
+      "pct": 54.2
     },
     {
       "type": "Other",
@@ -1298,11 +1298,11 @@
   "QUEENS|Summer|morning": [
     {
       "type": "Other",
-      "pct": 41.6
+      "pct": 41.7
     },
     {
       "type": "Loud Music/Party",
-      "pct": 22.8
+      "pct": 22.7
     },
     {
       "type": "Banging/Pounding",
@@ -1320,7 +1320,7 @@
     },
     {
       "type": "Other",
-      "pct": 16.9
+      "pct": 17.0
     },
     {
       "type": "Loud Talking",
@@ -1338,11 +1338,11 @@
     },
     {
       "type": "Other",
-      "pct": 18.3
+      "pct": 18.4
     },
     {
       "type": "Loud Talking",
-      "pct": 7.8
+      "pct": 7.7
     },
     {
       "type": "Banging/Pounding",
@@ -1442,50 +1442,14 @@
   "STATEN ISLAND|Fall|afternoon": [
     {
       "type": "Loud Music/Party",
-      "pct": 36.2
+      "pct": 33.9
     },
     {
       "type": "Other",
-      "pct": 22.1
+      "pct": 27.0
     },
     {
       "type": "Banging/Pounding",
-      "pct": 21.4
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 11.7
-    }
-  ],
-  "STATEN ISLAND|Fall|evening": [
-    {
-      "type": "Loud Music/Party",
-      "pct": 54.5
-    },
-    {
-      "type": "Banging/Pounding",
-      "pct": 15.4
-    },
-    {
-      "type": "Other",
-      "pct": 12.1
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 8.8
-    }
-  ],
-  "STATEN ISLAND|Fall|morning": [
-    {
-      "type": "Other",
-      "pct": 32.5
-    },
-    {
-      "type": "Banging/Pounding",
-      "pct": 23.1
-    },
-    {
-      "type": "Loud Music/Party",
       "pct": 20.0
     },
     {
@@ -1493,40 +1457,76 @@
       "pct": 10.9
     }
   ],
-  "STATEN ISLAND|Fall|night": [
+  "STATEN ISLAND|Fall|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 69.1
-    },
-    {
-      "type": "Banging/Pounding",
-      "pct": 11.9
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 8.4
+      "pct": 50.9
     },
     {
       "type": "Other",
-      "pct": 4.9
+      "pct": 17.9
+    },
+    {
+      "type": "Banging/Pounding",
+      "pct": 14.4
+    },
+    {
+      "type": "Loud Talking",
+      "pct": 8.2
+    }
+  ],
+  "STATEN ISLAND|Fall|morning": [
+    {
+      "type": "Other",
+      "pct": 35.9
+    },
+    {
+      "type": "Banging/Pounding",
+      "pct": 21.9
+    },
+    {
+      "type": "Loud Music/Party",
+      "pct": 19.0
+    },
+    {
+      "type": "Loud Talking",
+      "pct": 10.4
+    }
+  ],
+  "STATEN ISLAND|Fall|night": [
+    {
+      "type": "Loud Music/Party",
+      "pct": 65.5
+    },
+    {
+      "type": "Banging/Pounding",
+      "pct": 11.3
+    },
+    {
+      "type": "Other",
+      "pct": 9.9
+    },
+    {
+      "type": "Loud Talking",
+      "pct": 7.9
     }
   ],
   "STATEN ISLAND|Fall|overnight": [
     {
       "type": "Loud Music/Party",
-      "pct": 56.2
+      "pct": 53.3
     },
     {
       "type": "Banging/Pounding",
-      "pct": 17.6
-    },
-    {
-      "type": "Loud Talking",
-      "pct": 10.5
+      "pct": 16.7
     },
     {
       "type": "Other",
-      "pct": 8.8
+      "pct": 13.5
+    },
+    {
+      "type": "Loud Talking",
+      "pct": 9.9
     }
   ],
   "STATEN ISLAND|Spring|afternoon": [
@@ -1630,7 +1630,7 @@
     },
     {
       "type": "Banging/Pounding",
-      "pct": 15.3
+      "pct": 15.2
     },
     {
       "type": "Loud Talking",
@@ -1640,11 +1640,11 @@
   "STATEN ISLAND|Summer|evening": [
     {
       "type": "Loud Music/Party",
-      "pct": 52.9
+      "pct": 52.7
     },
     {
       "type": "Other",
-      "pct": 23.6
+      "pct": 23.8
     },
     {
       "type": "Banging/Pounding",
@@ -1658,11 +1658,11 @@
   "STATEN ISLAND|Summer|morning": [
     {
       "type": "Other",
-      "pct": 41.9
+      "pct": 42.0
     },
     {
       "type": "Loud Music/Party",
-      "pct": 20.8
+      "pct": 20.7
     },
     {
       "type": "Banging/Pounding",
@@ -1676,7 +1676,7 @@
   "STATEN ISLAND|Summer|night": [
     {
       "type": "Loud Music/Party",
-      "pct": 62.5
+      "pct": 62.4
     },
     {
       "type": "Other",
